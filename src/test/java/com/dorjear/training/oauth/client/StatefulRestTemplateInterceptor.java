@@ -7,7 +7,6 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 
 import java.io.IOException;
-import java.util.List;
 
 public class StatefulRestTemplateInterceptor implements ClientHttpRequestInterceptor {
     private String cookie;

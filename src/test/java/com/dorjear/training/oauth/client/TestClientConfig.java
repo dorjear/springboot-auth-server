@@ -15,8 +15,11 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestTemplateConfig {
+public class TestClientConfig {
 
+    public static final String CLIENT_BASIC_STRING = "Basic b2F1dGgyLWp3dC1jbGllbnQ6YWRtaW4xMjM0"; //oauth2-jwt-client:admin1234
+    public static final String USER_NAME = "admin";
+    public static final String USER_PASSWORD = "admin1234";
     //Not use in this lab. Just keep the code
     private static RestTemplate restTemplateWithCookieStore() {
         CookieStore cookieStore = new BasicCookieStore();

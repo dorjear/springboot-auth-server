@@ -11,9 +11,11 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+import static com.dorjear.training.oauth.client.TestClientConfig.*;
+
 
 public class IntegrationTestMain {
-    private static RestTemplate restTemplate = RestTemplateConfig.restTemplate();
+    private static RestTemplate restTemplate = TestClientConfig.restTemplate();
 
     public static void main(String[] args) {
 
@@ -41,7 +43,7 @@ public class IntegrationTestMain {
 
         // Create HttpHeaders
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Basic b2F1dGgyLWp3dC1jbGllbnQ6YWRtaW4xMjM0");
+        headers.add("Authorization", CLIENT_BASIC_STRING);
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
         // Create the request body
@@ -63,14 +65,14 @@ public class IntegrationTestMain {
 
         // Create HttpHeaders
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Basic b2F1dGgyLWp3dC1jbGllbnQ6YWRtaW4xMjM0");
+        headers.add("Authorization", CLIENT_BASIC_STRING);
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
         // Create the request body
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
         map.add("grant_type", "client_credentials");
-        map.add("username", "admin");
-        map.add("password", "admin1234");
+        map.add("username", USER_NAME);
+        map.add("password", USER_PASSWORD);
 
         // Create an HttpEntity object with headers and body
         HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(map, headers);
@@ -114,8 +116,8 @@ public class IntegrationTestMain {
         headers.set("Cookie", sessionCookie);
 
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.add("username", "admin");
-        map.add("password", "admin1234");
+        map.add("username", USER_NAME);
+        map.add("password", USER_PASSWORD);
         map.add("_csrf", csrfToken);
 
         // Combine headers and body into an entity
@@ -181,7 +183,7 @@ public class IntegrationTestMain {
         // Headers
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        headers.add("Authorization", "Basic b2F1dGgyLWp3dC1jbGllbnQ6YWRtaW4xMjM0");
+        headers.add("Authorization", CLIENT_BASIC_STRING);
 
         // Form data
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
@@ -205,7 +207,7 @@ public class IntegrationTestMain {
         // Headers
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        headers.add("Authorization", "Basic b2F1dGgyLWp3dC1jbGllbnQ6YWRtaW4xMjM0");
+        headers.add("Authorization", CLIENT_BASIC_STRING);
 
         // Form data
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
